@@ -1,0 +1,718 @@
+/* ========================================
+   THANKSGIVING THEME OVERRIDE FOR CARPOOL HOMEPAGE
+
+   Usage: Paste this entire file into Avada → Theme Options → Custom CSS
+
+   To activate Thanksgiving theme: Add this CSS
+   To deactivate: Remove this CSS from Custom CSS field
+
+   Without this CSS, the page will display the professional
+   neutral theme with light gray backgrounds and maroon accents.
+   ======================================== */
+
+/* Thanksgiving Color Variables Override */
+:root {
+  /* Warm harvest color palette */
+  --accent: #d4a259 !important; /* Golden amber */
+  --accent-light: #e6b66d !important; /* Light gold */
+  --accent-gradient: linear-gradient(135deg, #d4a259 0%, #e6b66d 100%) !important;
+  --bg: #4a1515 !important; /* Deep burgundy wine */
+  --text: #fdf8f3 !important; /* Warm white */
+  --muted: #d4b8a3 !important; /* Warm beige */
+  --muted-accessible: #c2a68f !important;
+  --card: #f5f0e8 !important; /* Cream/parchment */
+
+  /* Rich Thanksgiving gradients */
+  --gradient-primary: linear-gradient(135deg, #d4a259 0%, #e6b66d 50%, #f2c97d 100%) !important;
+  --gradient-soft: linear-gradient(135deg, rgba(212,162,89,0.85) 0%, rgba(139,69,19,0.3) 100%) !important;
+  --gradient-mesh: radial-gradient(at 20% 30%, rgba(212,162,89,0.35) 0, transparent 40%),
+                   radial-gradient(at 80% 20%, rgba(139,69,19,0.4) 0, transparent 45%),
+                   radial-gradient(at 40% 80%, rgba(205,133,63,0.3) 0, transparent 40%),
+                   radial-gradient(at 90% 70%, rgba(107,26,26,0.5) 0, transparent 45%),
+                   linear-gradient(135deg, #2d0f0f 0%, #4a1515 50%, #5c1f1f 100%) !important;
+
+  /* Warm golden hour shadows with soft glow */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.25), 0 1px 4px rgba(212,162,89,.15) !important;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,.3), 0 2px 4px -1px rgba(139,69,19,.2) !important;
+  --shadow-md: 0 10px 15px -3px rgba(0,0,0,.4), 0 4px 6px -2px rgba(212,162,89,.25) !important;
+  --shadow-lg: 0 20px 25px -5px rgba(0,0,0,.5), 0 10px 10px -5px rgba(139,69,19,.35) !important;
+  --shadow-xl: 0 25px 50px -12px rgba(0,0,0,.7) !important;
+  --shadow-colored: 0 8px 32px -8px rgba(212,162,89,.5), 0 0 40px rgba(205,133,63,.3) !important;
+
+  --text-heading: #fdf8f3 !important;
+  --text-secondary: #d4b8a3 !important;
+  --ring: rgba(212, 162, 89, 0.5) !important;
+}
+
+/* Force warm burgundy background with mesh gradient on landing section */
+.carpool-landing {
+  background: var(--bg) !important;
+  background-image: var(--gradient-mesh) !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  color: var(--text) !important;
+}
+
+/* Force warm background on html/body when landing page is present */
+@supports selector(:has(*)) {
+  html:has(.carpool-landing),
+  body:has(.carpool-landing) {
+    background: var(--bg) !important;
+    background-image: var(--gradient-mesh) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+  }
+}
+
+/* Warm cream cards on burgundy background */
+.carpool-landing .info-grid > .card,
+.carpool-landing .how-it-works .hiw-step-wrapper .hiw-step,
+.carpool-landing .cta-tile,
+.carpool-landing .hero-highlight,
+.carpool-landing #hours .hours,
+.carpool-landing .video-frame,
+.carpool-landing .team-spotlight .ts-stage,
+.carpool-landing .cta-support {
+  background: linear-gradient(135deg, #f5f0e8 0%, #ede4d3 100%) !important;
+  color: #2d1810 !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.3), 0 2px 6px rgba(212,162,89,.2) !important;
+}
+
+/* Banner background override - Warm Thanksgiving Style */
+.carpool-landing .carpool-banner {
+  background: linear-gradient(135deg, #d4a259 0%, #e6b66d 100%) !important;
+  color: #2d1810 !important;
+  border-left-color: #b8894a !important;
+  box-shadow:
+    0 0 0 1px rgba(212,162,89,.3),
+    0 4px 12px rgba(212,162,89,.4),
+    0 8px 24px rgba(139,69,19,.25) !important;
+}
+
+.carpool-landing .carpool-banner::before {
+  background: linear-gradient(180deg, #b8894a 0%, #d4a259 50%, transparent 100%) !important;
+}
+
+.carpool-landing .carpool-banner:hover {
+  box-shadow:
+    0 0 0 1px rgba(212,162,89,.4),
+    0 6px 16px rgba(212,162,89,.5),
+    0 12px 32px rgba(139,69,19,.35) !important;
+}
+
+/* Banner success/error states - high contrast on golden background */
+.carpool-landing .carpool-banner.success {
+  background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%) !important;
+  border-left-color: #2e7d32 !important;
+}
+
+.carpool-landing .carpool-banner.success::before {
+  background: linear-gradient(180deg, #2e7d32 0%, #43a047 50%, transparent 100%) !important;
+}
+
+.carpool-landing .carpool-banner.success .banner-text,
+.carpool-landing .carpool-banner.success .banner-text strong {
+  color: #1b5e20 !important;
+}
+
+.carpool-landing .carpool-banner.success .icon {
+  color: #1b5e20 !important;
+  background: linear-gradient(135deg, rgba(27, 94, 32, 0.15) 0%, rgba(27, 94, 32, 0.22) 100%) !important;
+  border-color: rgba(27, 94, 32, 0.35) !important;
+  box-shadow: 0 2px 8px rgba(27, 94, 32, .2) !important;
+}
+
+.carpool-landing .carpool-banner.error {
+  background: linear-gradient(135deg, #ffccbc 0%, #ffab91 100%) !important;
+  border-left-color: #c62828 !important;
+}
+
+.carpool-landing .carpool-banner.error::before {
+  background: linear-gradient(180deg, #c62828 0%, #e53935 50%, transparent 100%) !important;
+}
+
+.carpool-landing .carpool-banner.error .banner-text,
+.carpool-landing .carpool-banner.error .banner-text strong {
+  color: #b71c1c !important;
+}
+
+.carpool-landing .carpool-banner.error .icon {
+  color: #b71c1c !important;
+  background: linear-gradient(135deg, rgba(183, 28, 28, 0.15) 0%, rgba(183, 28, 28, 0.22) 100%) !important;
+  border-color: rgba(183, 28, 28, 0.35) !important;
+  box-shadow: 0 2px 8px rgba(183, 28, 28, .2) !important;
+}
+
+/* Modal popup overrides for Thanksgiving theme */
+.carpool-landing .ride-modal__card {
+  background: linear-gradient(180deg, #5c1f1f 0%, #6b2828 100%) !important;
+  color: #fdf8f3 !important;
+  border: 1px solid rgba(212,162,89,.25) !important;
+  box-shadow:
+    0 0 0 1px rgba(212,162,89,.2),
+    0 8px 16px -4px rgba(0,0,0,.6),
+    0 20px 40px -8px rgba(139,69,19,.4),
+    0 40px 80px -16px rgba(212,162,89,.35) !important;
+}
+
+.carpool-landing .ride-modal__head {
+  background: linear-gradient(135deg, #d4a259 0%, #e6b66d 50%, #f2c97d 100%) !important;
+  color: #2d1810 !important;
+}
+
+.carpool-landing .ride-modal__head::after {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent) !important;
+}
+
+.carpool-landing .ride-modal__title {
+  color: #2d1810 !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,.15) !important;
+}
+
+.carpool-landing .ride-modal__subtitle {
+  color: rgba(45,24,16,.8) !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,.1) !important;
+}
+
+.carpool-landing .ride-modal__close {
+  color: rgba(45,24,16,.7) !important;
+}
+
+.carpool-landing .ride-modal__close:hover {
+  background: rgba(0,0,0,.08) !important;
+  color: #2d1810 !important;
+}
+
+.carpool-landing .ride-modal__body {
+  color: #f5f0e8 !important;
+}
+
+.carpool-landing .ride-btn--call {
+  background: linear-gradient(135deg, #d4a259 0%, #e6b66d 100%) !important;
+  color: #2d1810 !important;
+  box-shadow:
+    0 0 0 1px rgba(212,162,89,.25),
+    0 4px 12px rgba(212,162,89,.45),
+    0 8px 24px rgba(212,162,89,.35) !important;
+}
+
+.carpool-landing .ride-btn--call:hover {
+  box-shadow:
+    0 0 0 1px rgba(212,162,89,.35),
+    0 6px 16px rgba(212,162,89,.55),
+    0 12px 32px rgba(212,162,89,.45) !important;
+}
+
+.carpool-landing .ride-btn--call::before {
+  background: linear-gradient(135deg, rgba(255,255,255,.25) 0%, transparent 100%) !important;
+}
+
+.carpool-landing .ride-btn--secondary {
+  background: #6b2828 !important;
+  color: #fdf8f3 !important;
+  border: 1.5px solid rgba(212,162,89,.3) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,.35) !important;
+}
+
+.carpool-landing .ride-btn--secondary:hover {
+  background: #7d3232 !important;
+  border-color: rgba(212,162,89,.4) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,.45) !important;
+}
+
+.carpool-landing .ride-btn--secondary:active {
+  background: #5c1f1f !important;
+}
+
+/* FAQ details open state - golden background needs dark text */
+.carpool-landing .faq details[open] {
+  background: linear-gradient(135deg, #e6b66d 0%, #f2c97d 100%) !important;
+  color: #2d1810 !important;
+  box-shadow: 0 4px 12px rgba(212,162,89,.3) !important;
+}
+
+.carpool-landing .faq details[open] summary {
+  color: #2d1810 !important;
+}
+
+.carpool-landing .faq details[open] .answer {
+  color: #2d1810 !important;
+}
+
+/* Warm golden gradient text for headers on dark background */
+.carpool-landing h1,
+.carpool-landing .section h2,
+.carpool-landing .team-spotlight h2 {
+  color: #fdf8f3 !important;
+  background: var(--gradient-primary) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Hero heading - golden gradient on burgundy background */
+.carpool-landing .hero h1 {
+  background: var(--gradient-primary) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* CTA heading - rich brown gradient for cream card */
+.carpool-landing .cta-head h2 {
+  background: linear-gradient(135deg, #8b4513 0%, #b8894a 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* CTA subheading - warm amber gradient */
+.carpool-landing .cta-head .sub {
+  background: linear-gradient(135deg, #b8894a 0%, #d4a259 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Card headings - rich brown on cream background */
+.carpool-landing .info-grid > .card h2,
+.carpool-landing .how-it-works .hiw-step h3,
+.carpool-landing .big,
+.carpool-landing .cta-tile strong {
+  color: #2d1810 !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+}
+
+/* Card text - dark brown on cream background */
+.carpool-landing .info-grid > .card p,
+.carpool-landing .how-it-works .hiw-step p,
+.carpool-landing .cta-tile .meta,
+.carpool-landing .hero-highlight .stat-label,
+.carpool-landing .hero-highlight .hero-promise,
+.carpool-landing .carpool-banner .banner-text,
+.carpool-landing .hours .note,
+.carpool-landing .cta-support .chip {
+  color: #2d1810 !important;
+}
+
+/* Warm white text on burgundy background areas */
+.carpool-landing > .carpool-wrap > p,
+.carpool-landing .hero-subtitle {
+  color: #f5f0e8 !important;
+}
+
+/* Stat value - rich brown on cream background */
+.carpool-landing .hero-highlight .stat-value {
+  color: #2d1810 !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+}
+
+/* Badge with golden amber background and rich text */
+.carpool-landing .how-it-works .badge {
+  background: linear-gradient(135deg, #d4a259 0%, #e6b66d 100%) !important;
+  color: #2d1810 !important;
+  border-color: #b8894a !important;
+  box-shadow: var(--shadow-md), 0 0 0 1px rgba(212,162,89,0.35) !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  background-image: linear-gradient(135deg, #d4a259 0%, #e6b66d 100%) !important;
+}
+
+/* Button with warm golden glow */
+.carpool-landing .btn {
+  background: var(--gradient-primary) !important;
+  box-shadow: var(--shadow-colored) !important;
+  color: #2d1810 !important;
+  font-weight: 600 !important;
+}
+
+.carpool-landing .btn:hover {
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(184,137,74,0.2) !important;
+  color: #2d1810 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* CTA icon backgrounds - on cream cards */
+.carpool-landing .cta-icon {
+  background: rgba(139, 69, 19, 0.08) !important;
+  color: #8b4513 !important;
+  border-color: rgba(139, 69, 19, 0.2) !important;
+}
+
+/* Team Spotlight - text on cream background */
+.carpool-landing .team-spotlight {
+  --ts-border: 1px solid rgba(45,24,16,.12) !important;
+}
+
+.carpool-landing .team-spotlight .ts-stage .ts-name {
+  color: #2d1810 !important;
+}
+
+.carpool-landing .team-spotlight .ts-stage .ts-role {
+  color: #5d4e37 !important;
+}
+
+.carpool-landing .team-spotlight .ts-stage .ts-fact {
+  color: #2d1810 !important;
+}
+
+.carpool-landing .team-spotlight .ts-btn {
+  background: linear-gradient(135deg, rgba(212,162,89,0.15) 0%, rgba(139,69,19,0.1) 100%) !important;
+  color: #2d1810 !important;
+  border: 1px solid rgba(139,69,19,.15) !important;
+}
+
+#carpool-landing #cta-title {
+  color: #2d1810 !important;
+}
+
+.carpool-landing .team-spotlight .ts-btn:hover {
+  background: var(--gradient-primary) !important;
+  color: #2d1810 !important;
+  border-color: transparent !important;
+}
+
+/* Eyebrow badge - harvest gold */
+.carpool-landing .cta-head .eyebrow {
+  border-color: rgba(184,137,74,.2) !important;
+  background: linear-gradient(135deg, #d4a259 0%, #e6b66d 100%) !important;
+  color: #2d1810 !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(212,162,89,.25) !important;
+}
+
+/* Support chips - warm contrast on cream card */
+.carpool-landing .cta-support .chip {
+  background: rgba(139, 69, 19, 0.08) !important;
+  border-color: rgba(139, 69, 19, 0.18) !important;
+  color: #5d4e37 !important;
+}
+
+.carpool-landing .cta-support .chip:hover {
+  background: var(--gradient-primary) !important;
+  color: #2d1810 !important;
+  border-color: transparent !important;
+}
+
+/* Social icons - warm contrast on cream card */
+.carpool-landing .cta-social .social {
+  background: rgba(139, 69, 19, 0.08) !important;
+  border-color: rgba(139, 69, 19, 0.18) !important;
+  color: #5d4e37 !important;
+}
+
+.carpool-landing .cta-social .social:hover {
+  background: var(--gradient-primary) !important;
+  color: #2d1810 !important;
+  border-color: transparent !important;
+}
+
+/* How it works icon - on cream card */
+.carpool-landing .how-it-works .hiw-icon {
+  background: rgba(139, 69, 19, 0.08) !important;
+  border-color: rgba(139, 69, 19, 0.18) !important;
+  color: #8b4513 !important;
+}
+
+/* Service banner icon - on golden card */
+.carpool-landing .carpool-banner .icon {
+  background: rgba(45, 24, 16, 0.1) !important;
+  color: #2d1810 !important;
+  border-color: rgba(45, 24, 16, 0.2) !important;
+}
+
+/* Video frame border effect - golden glow */
+.carpool-landing .video-frame::before {
+  background: var(--gradient-primary) !important;
+  opacity: 0.5 !important;
+}
+
+/* FAQ details hover - warm glow */
+.carpool-landing .faq details {
+  background: linear-gradient(135deg, rgba(212,162,89,0.12) 0%, rgba(139,69,19,0.08) 100%) !important;
+  border-color: rgba(139,69,19,.15) !important;
+  color: #f5f0e8 !important;
+}
+
+.carpool-landing .faq details:hover {
+  border-color: rgba(212,162,89,.3) !important;
+  background: linear-gradient(135deg, rgba(212,162,89,0.18) 0%, rgba(139,69,19,0.12) 100%) !important;
+}
+
+.carpool-landing .faq details summary {
+  color: #f5f0e8 !important;
+}
+
+/* Promise pop - warm harvest gradient */
+.carpool-landing .hero-highlight .promise-pop {
+  background: linear-gradient(135deg, rgba(212,162,89,0.85) 0%, rgba(139,69,19,0.3) 100%) !important;
+  color: #2d1810 !important;
+}
+
+.carpool-landing .ts-facts {
+  background: linear-gradient(135deg, rgba(212,162,89,0.15) 0%, rgba(139,69,19,0.1) 100%) !important;
+}
+
+.carpool-landing .ts-prev {
+  background: linear-gradient(135deg, rgba(212,162,89,0.15) 0%, rgba(139,69,19,0.1) 100%) !important;
+  color: #2d1810 !important;
+}
+
+.carpool-landing .ts-next {
+  background: linear-gradient(135deg, rgba(212,162,89,0.15) 0%, rgba(139,69,19,0.1) 100%) !important;
+  color: #2d1810 !important;
+}
+
+/* Harvest gold top borders on cards */
+.carpool-landing .info-grid > .card::before,
+.carpool-landing .how-it-works .hiw-step::before,
+.carpool-landing .cta-tile::before,
+.carpool-landing .hero-highlight::before,
+.carpool-landing #hours .hours::before,
+.carpool-landing .carpool-banner::before {
+  background: linear-gradient(90deg, #b8894a 0%, #d4a259 50%, #b8894a 100%) !important;
+}
+
+.carpool-landing .carpool-banner.success {
+  border-top-color: #2e7d32 !important;
+}
+
+/* Section heading underlines - golden gradient */
+.carpool-landing .section h2::after {
+  background: var(--gradient-primary) !important;
+}
+
+/* Card heading underline - rich brown on cream background */
+.carpool-landing .info-grid .card h2::after {
+  background: linear-gradient(90deg, transparent 0%, #8b4513 50%, transparent 100%) !important;
+}
+
+/* Falling leaves animation */
+@keyframes fallLeaf {
+  0% {
+    transform: translateY(-100px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fallLeafAlt {
+  0% {
+    transform: translateY(-100px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) translateX(-80px) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+/* Gentle sway animation for ambient effect */
+@keyframes gentleSway {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+/* Warm glow pulse for cozy effect */
+@keyframes warmGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212,162,89,.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212,162,89,.35);
+  }
+}
+
+/* Ensure parent sections have proper stacking context */
+.carpool-landing {
+  position: relative !important;
+  z-index: auto !important;
+}
+
+.carpool-landing .info-grid,
+.carpool-landing .how-it-works,
+.carpool-landing .cta-section,
+.carpool-landing .faq,
+.carpool-landing #hours {
+  position: relative !important;
+  z-index: 50 !important;
+}
+
+/* ========================================
+   FIX: Mobile Footer Spacing Issue
+   ======================================== */
+
+/* Ensure html and body have warm burgundy background */
+html {
+  background: #4a1515 !important;
+  background-image: radial-gradient(at 20% 30%, rgba(212,162,89,0.35) 0, transparent 40%),
+                    radial-gradient(at 80% 20%, rgba(139,69,19,0.4) 0, transparent 45%),
+                    radial-gradient(at 40% 80%, rgba(205,133,63,0.3) 0, transparent 40%),
+                    radial-gradient(at 90% 70%, rgba(107,26,26,0.5) 0, transparent 45%),
+                    linear-gradient(135deg, #2d0f0f 0%, #4a1515 50%, #5c1f1f 100%) !important;
+  background-attachment: fixed !important;
+  min-height: 100%;
+}
+
+body {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh !important;
+}
+
+/* Ensure carpool-landing extends to cover full page */
+.carpool-landing {
+  min-height: 100vh !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Make footer part of the warm background flow */
+.carpool-landing > .carpool-wrap {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Ensure footer has no gaps */
+footer[itemscope] {
+  margin-bottom: 0 !important;
+  padding-bottom: calc(48px + env(safe-area-inset-bottom)) !important;
+}
+
+/* Container for falling leaves (to be added via JavaScript) */
+#leaves-container {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 15 !important;
+  overflow: hidden !important;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 700px) {
+  /* Ensure no white space on mobile */
+  html, body {
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Tighter footer on mobile */
+  footer[itemscope] {
+    padding: 32px 16px calc(32px + env(safe-area-inset-bottom)) !important;
+    margin-top: 40px !important;
+  }
+
+  /* Ensure carpool-wrap doesn't add extra space */
+  .carpool-landing .carpool-wrap {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Ensure CTA section doesn't add extra margin */
+  .carpool-landing .cta-section {
+    margin-bottom: 0 !important;
+    padding-bottom: 24px !important;
+  }
+}
+
+/* ========================================
+   FIX: How It Works Title Alignment on Mobile
+   ======================================== */
+
+/* Force consistent alignment for all cards */
+.how-it-works .hiw-step {
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
+
+/* Ensure icon has consistent fixed height on all cards */
+.how-it-works .hiw-icon {
+  margin: 24px auto 16px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Title should start at same position */
+.how-it-works .hiw-title {
+  margin: 12px 0 8px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Text can grow to fill remaining space */
+.how-it-works .hiw-text {
+  flex-grow: 1 !important;
+}
+
+/* Mobile-specific alignment fixes */
+@media (max-width: 700px) {
+  .how-it-works .hiw-step {
+    padding: 20px 7px 10px !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Fixed spacing for icon on mobile */
+  .how-it-works .hiw-icon {
+    margin: 12px auto 4px !important;
+    height: 28px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Consistent title positioning */
+  .how-it-works .hiw-title {
+    margin: 4px 0 2px !important;
+    min-height: 2.4em !important; /* Reserve space for 2 lines */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* Text fills remaining space */
+  .how-it-works .hiw-text {
+    margin: 0 !important;
+    flex-grow: 1 !important;
+  }
+}
+
+/* Ultra-narrow screens */
+@media (max-width: 360px) {
+  .how-it-works .hiw-title {
+    min-height: 2.6em !important; /* Slightly more space for wrapped text */
+  }
+}
