@@ -20,7 +20,7 @@
   --text: #fdf8f3 !important; /* Warm white */
   --muted: #d4b8a3 !important; /* Warm beige */
   --muted-accessible: #c2a68f !important;
-  --card: #f5f0e8 !important; /* Cream/parchment */
+  --card: #f4d8be !important; /* Warm peachy-cream */
 
   /* Rich Thanksgiving gradients */
   --gradient-primary: linear-gradient(135deg, #d4a259 0%, #e6b66d 50%, #f2c97d 100%) !important;
@@ -66,7 +66,7 @@
   }
 }
 
-/* Warm cream cards on burgundy background */
+/* Warm peachy-cream cards on burgundy background */
 .carpool-landing .info-grid > .card,
 .carpool-landing .how-it-works .hiw-step-wrapper .hiw-step,
 .carpool-landing .cta-tile,
@@ -75,7 +75,7 @@
 .carpool-landing .video-frame,
 .carpool-landing .team-spotlight .ts-stage,
 .carpool-landing .cta-support {
-  background: linear-gradient(135deg, #f5f0e8 0%, #ede4d3 100%) !important;
+  background: #f4d8be !important;
   color: #2d1810 !important;
   box-shadow: 0 4px 12px rgba(0,0,0,.3), 0 2px 6px rgba(212,162,89,.2) !important;
 }
