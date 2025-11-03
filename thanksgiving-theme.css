@@ -436,6 +436,11 @@
   opacity: 0.5 !important;
 }
 
+/* FAQ section - override white text from .carpool-landing */
+.carpool-landing .faq {
+  color: #2d1810 !important;
+}
+
 /* FAQ details hover - warm glow */
 .carpool-landing .faq details {
   background: linear-gradient(135deg, rgba(212,162,89,0.12) 0%, rgba(139,69,19,0.08) 100%) !important;
