@@ -448,11 +448,16 @@
   background: linear-gradient(135deg, rgba(212,162,89,0.18) 0%, rgba(139,69,19,0.12) 100%) !important;
 }
 
-.carpool-landing .faq details summary {
+/* FAQ summary text - ensure black in closed state */
+.carpool-landing .faq details summary,
+.carpool-landing .faq details summary *,
+.carpool-landing .faq details:not([open]) summary,
+.carpool-landing .faq details:not([open]) summary * {
   color: #2d1810 !important;
 }
 
-.carpool-landing .faq details .answer {
+.carpool-landing .faq details .answer,
+.carpool-landing .faq details .answer * {
   color: #2d1810 !important;
 }
 
