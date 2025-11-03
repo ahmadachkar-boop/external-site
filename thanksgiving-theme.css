@@ -241,6 +241,15 @@
   color: #2d1810 !important;
 }
 
+/* FAQ details CLOSED state - ensure black text */
+.carpool-landing .faq details:not([open]) summary {
+  color: #2d1810 !important;
+}
+
+.carpool-landing .faq details summary {
+  color: #2d1810 !important;
+}
+
 /* Warm golden gradient text for headers on dark background */
 .carpool-landing h1,
 .carpool-landing .section h2,
